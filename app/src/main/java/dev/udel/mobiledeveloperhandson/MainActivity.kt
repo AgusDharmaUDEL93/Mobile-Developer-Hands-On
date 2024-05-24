@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -44,25 +43,21 @@ fun HomeView(modifier: Modifier = Modifier) {
         mutableIntStateOf(0)
     }
 
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        floatingActionButton = {
-            FloatingActionButton(onClick = {
-                count++
-            }) {
-                Icon(imageVector = Icons.Filled.Add, contentDescription = "Add Number")
-            }
+    Scaffold(modifier = modifier.fillMaxSize(), floatingActionButton = {
+        FloatingActionButton(onClick = {
+            count++
+        }) {
+            Icon(imageVector = Icons.Filled.Add, contentDescription = "Add Number")
         }
-    ) { innerPadding ->
+    }) { innerPadding ->
         Box(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
             contentAlignment = Alignment.Center
-        ){
+        ) {
             Text(
-                text = "$count",
-                fontSize = 24.sp
+                text = "$count", fontSize = 24.sp
             )
         }
     }
